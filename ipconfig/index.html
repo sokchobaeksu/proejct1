@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta charset="utf-8">
+    <meta name="robots" content="index,nofollow">
+    <meta name="Mediapartners-Google" content="index, nofollow">
+    <title>아이피 조회</title>
+    <meta name="description" content="공유기 사용하는 컴퓨터의 실제 외부 IP / 내부 IP 조회 사이트">
+    
+    <link rel="canonical" href="https://wepplication.github.io/tools/ipconfig/">
+    
+    <!-- 소셜 미디어로 공유 활용 정보 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="아이피 조회 [공인(외부)/내부]">
+    <meta property="og:description" content="공유기 사용하는 컴퓨터의 실제 외부 IP / 내부 IP 조회 사이트">
+    <meta property="og:url" content="https://wepplication.github.io/tools/ipconfig/">
+    <meta property="og:image" content="https://wepplication.github.io/tools/image/screenshot/ipconfig.png">
+    
+    <meta name="theme-color" content="#000000"><!-- Chrome, Firefox OS and Opera -->
+    <meta name="msapplication-navbutton-color" content="#000000"><!-- Windows Phone -->
+    <meta name="apple-mobile-web-app-capable" content="yes"><!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!-- iOS Safari -->
+    <meta name="mobile-web-app-capable" content="yes"><!-- Add to homescreen for Chrome on Android -->
+    <link rel="icon" sizes="192x192" href="/tools/android-icon-192x192.png"><!-- Add to homescreen for Chrome on Android -->
+    <meta name="apple-mobile-web-app-title" content="Push Messaging and Notifications Sample"><!-- Add to homescreen for Safari on iOS -->
+    <link rel="apple-touch-icon-precomposed" href="/tools/apple-touch-icon-precomposed.png">
+    <meta name="msapplication-TileImage" content="/tools/ms-icon-144x144-precomposed.png"><!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="shortcut icon" href="/tools/favicon.ico">
+    
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='/tools/css/common.css' />
+	
+	<script data-ad-client="ca-pub-2077999268380568" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </head>
+  <body>
+    <header w3-include-html="/tools/includes/navbar.html"></header>
+    
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div id="title">
+              <h1><b>IP 조회</b></h1>
+              공유기 사용하는 사용자를 위한 컴퓨터의 실제 외부 IP 조회 사이트
+            </div>
+          </div>
+        </div>
+        
+        <hr/>
+        
+        
+        <div class="row">
+          <div id="ipList" class="col-md-10 col-md-offset-1">
+            <font color="DodgerBlue">
+              <h1><strong>공인(외부) 아이피 주소 : <span id="publicIp"></span></strong></h1><br>
+            </font>
+          </div>
+        </div>
+        
+        <hr/>
+        
+        <!-- 댓글 -->
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div id="disqus_thread"></div>
+            <script>
+            var disqus_config = function () {
+              this.page.url = "https://wepplication.github.io/tools/ipconfig/";  // Replace PAGE_URL with your page's canonical URL variable
+              this.page.identifier = "/tools/ipconfig/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+				this.language = "ko";
+            };
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://wepplication.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          </div>
+        </div>
+        <!-- /댓글 -->
+        
+      </div><!-- container -->
+    </main><!-- main -->
+    
+    
+    <footer w3-include-html="/tools/includes/footer.html"></footer>
+    
+    <iframe id="iframe" sandbox="allow-same-origin" style="display: none"></iframe>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128075739-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-128075739-1');
+    </script>
+    
+    <!-- Naver Analytics -->
+    <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+    <script type="text/javascript">
+      if(!wcs_add) var wcs_add = {};
+      wcs_add["wa"] = "2b27e8a158b290";
+      wcs_do();
+    </script>
+    
+    <script src="/tools/js/include.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/tools/js/common.js"></script>
+    <script>
+      $(document).ready(function(){
+        
+        $(function() {
+          $.getJSON("https://api.ipify.org?format=jsonp&callback=?",
+            function(json) {
+              $("#publicIp").text(json.ip);
+            }
+          );
+        });
+        
+      });
+    </script>
+  </body>
+</html>
